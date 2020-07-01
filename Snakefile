@@ -244,7 +244,7 @@ rule quality_check:
     message:
         "bam Quality check for {wildcards.sample}"
     shell:
-        "qualimap bamqc -bam {input}"
+        "{config[QUALIMAP_PATH]}/qualimap bamqc -bam {input}"
         " -gff {params.bedfile} -c"
         " -outdir {params.outdir} -outfile {wildcards.sample}.qc_report.pdf"
 
