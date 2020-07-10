@@ -30,7 +30,7 @@ for row in x:
     if(set_str =='variant' or set_str =='variant-filterInvariant2'):
         data['Variant_Callers'].append('Freebayes')
     elif (set_str =='Intersection'):
-        data['Variant_Callers'].append('Both')
+        data['Variant_Callers'].append('Freebayes,Platypus')
     else:
         data['Variant_Callers'].append('Platypus')
     formatval=rowitems[-1].split(':')
