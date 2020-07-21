@@ -12,6 +12,7 @@ FILE_PATH = FILE_PATH.strip('sample_details.csv')
 os.chdir(FILE_PATH)
 ##### code to download sequences file from s3
 S3PATH=config["S3PATH"]
+print('Working paths:',FILE_PATH, S3PATH) 
 S3PATH=S3PATH.replace('s3://','')
 s3list = S3PATH.split('/')
 BUCKET_NAME = s3list[0]
@@ -236,7 +237,7 @@ rule quality_check:
         '{sample}.analysis/gatk38_processing/{sample}.final.bam'
     params:
         outdir = '{sample}.analysis/qualimap_results',
-        bedfile = config["bedfile"].replace('_file.bed', '_qualimap.bed')
+        bedfile = config["bedfile"].replace('.bed', '_qualimap.bed')
     output:
         '{sample}.analysis/qualimap_results/{sample}.qc_report.pdf'
     log:
